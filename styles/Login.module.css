@@ -1,0 +1,87 @@
+.techLogin {
+    background: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    }
+    
+    .techLogin::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
+    background-size: 80px 80px;
+    opacity: 0.08;
+    animation: moveBG 40s linear infinite;
+    z-index: 0;
+    }
+    
+    @keyframes moveBG {
+    0% {
+    transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+    transform: translate(10%, 10%) rotate(360deg);
+    }
+    }
+    
+    .form {
+    animation: form-entry 3s ease-in-out;
+    background: linear-gradient(#004746, #111111);
+    border: 6px solid #00a4a2;
+    box-shadow: 0 0 15px #00fffd;
+    border-radius: 5px;
+    height: 220px;
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: 1s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    }
+    
+    .form:hover {
+    border: 6px solid #00fffd;
+    box-shadow: 0 0 25px #00fffd;
+    transition: 0.5s all;
+    }
+    
+    .form  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    }
+    
+    .form input {
+    background-color: #222;
+    color: #0ff;
+    }
+    
+   .form button {
+    background-color: #0ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    }
+    
+    @keyframes form-entry {
+    from {
+    opacity: 0;
+    transform: translateY(-50px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
