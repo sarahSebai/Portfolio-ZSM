@@ -1,87 +1,106 @@
-.techLogin {
-    background: #000;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    }
-    
-    .techLogin::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
-    background-size: 80px 80px;
-    opacity: 0.08;
-    animation: moveBG 40s linear infinite;
-    z-index: 0;
-    }
-    
-    @keyframes moveBG {
-    0% {
-    transform: translate(0, 0) rotate(0deg);
-    }
-    100% {
-    transform: translate(10%, 10%) rotate(360deg);
-    }
-    }
-    
-    .form {
-    animation: form-entry 3s ease-in-out;
-    background: linear-gradient(#004746, #111111);
-    border: 6px solid #00a4a2;
-    box-shadow: 0 0 15px #00fffd;
-    border-radius: 5px;
-    height: 220px;
-    width: 500px;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 1;
-    transition: 1s all;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    }
-    
-    .form:hover {
-    border: 6px solid #00fffd;
-    box-shadow: 0 0 25px #00fffd;
-    transition: 0.5s all;
-    }
-    
-    .form  button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    }
-    
-    .form input {
-    background-color: #222;
-    color: #0ff;
-    }
-    
-   .form button {
-    background-color: #0ff;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    }
-    
-    @keyframes form-entry {
-    from {
-    opacity: 0;
-    transform: translateY(-50px);
-    }
-    to {
-    opacity: 1;
-    transform: translateY(0);
-    }
-    }
+/* Fond sombre semi-transparent */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(20, 0, 40, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Boîte modale violet néon */
+.modalContent {
+  background: linear-gradient(135deg, #2e005f, #4b0082);
+  border: 3px solid #d100f7;
+  box-shadow:
+    0 0 15px #d100f7,
+    0 0 40px #aa00ff,
+    0 0 60px #ff5aff;
+  border-radius: 10px;
+  width: 400px;
+  padding: 30px 25px;
+  box-sizing: border-box;
+  color: #f5cdfd;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Formulaire */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  background-color: #3a006f;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  color: #f1c4ff;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s, background-color 0.3s;
+  box-shadow: inset 0 0 6px #8a2be2;
+}
+
+.form input::placeholder {
+  color: #dcb3ff;
+}
+
+.form input:focus {
+  background-color: #4b0082;
+  box-shadow:
+    0 0 8px #d100f7,
+    inset 0 0 10px #ff6fff;
+}
+
+/* Bouton violet néon */
+.form button {
+  background: linear-gradient(90deg, #d100f7, #ff5aff);
+  color: #1a0033;
+  border: none;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+.form button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 20px #ff5aff, 0 0 30px #d100f7;
+}
+
+/* Message d'info ou d'erreur */
+.message {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #ff7fff;
+  min-height: 20px;
+  text-shadow: 0 0 5px #ff5aff;
+}
+
+/* Lien bascule connexion/inscription */
+.toggleLink {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #d100f7;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+  text-shadow: 0 0 5px #ff5aff;
+}
+
+.toggleLink:hover {
+  color: #ff5aff;
+  text-shadow: 0 0 10px #ff8fff;
+}
